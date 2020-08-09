@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PANTHA APP</title>
+    <link
+      rel="stylesheet"
+      href="assets/fonts/fontawesome/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="assets/styles/bootstrap-css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/styles/bootstrap-css/animation.css" />
+    <link rel="stylesheet" href="assets/styles/nav.css" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/styles/traveller.css" />
+  </head>
+  <body>
+    <div class="loader-bg">
+      <div class="loader"></div>
+    </div>
+    <!-- header section -->
+    <nav
+      class="navbar navbar-expand-lg navbar-expand-sm bg-light fixed-top shadow"
+    >
+      <a class="navbar-brand logo" href="#">
+        <img src="assets/img/head-logo.svg" alt="image"
+      /></a>
+      <div class="menu-btn">
+        <div class="menu-btn__burger"></div>
+      </div>
+      <div class="navbar-collapse nav" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto pagination" id="ham">
+          <li class="nav-item active">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#profile"
+              ><img src="assets/img/person-icon.svg" alt=""
+            /></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="traveller-wrapper">
+      <section>
+        <div class="container">
+          <div class="row trl-top">
+            <div class="col-sm-12 col-md-10 col-lg-6 txt-wrap">
+              <h2>Become a Traveller</h2>
+              <p>Please fill the form accurately to deliver a package.</p>
+            </div>
+
+            <div class="col-sm-12 col-md-10 col-lg-6 search">
+              <div class="input-group flex-nowrap">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="addon-wrapping">
+                    <i class="fa fa-search"></i>
+                  </span>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Search Location"
+                  aria-label="search"
+                  aria-describedby="addon-wrapping"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row mid-wrap">
+            <div class="trl-lft col-sm-12 col-md-10 col-lg-6">
+              <form class="needs-validation" novalidate>
+                <div class="form-group">
+                  <label for="exampleFormControlFile1">Select Location</label>
+                  <select class="form-control">
+                    <option>Select</option>
+                    <option>Aba</option>
+                    <option>Abuja</option>
+                    <option>Lagos</option>
+                    <option>Kaduna</option>
+                    <option>Kwara</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleFormControlFile1">Select Package</label>
+                  <select class="form-control">
+                    <option>Select</option>
+                    <option>Aba</option>
+                    <option>Abuja</option>
+                    <option>Lagos</option>
+                    <option>Kaduna</option>
+                    <option>Kwara</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-travel">
+                  Sign in
+                </button>
+              </form>
+            </div>
+            <div class="trl-rgt col-sm-12 col-md-10 col-lg-6"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- footer section -->
+    <footer class="footer p-5">
+      <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-4">
+          <img src="assets/img/head-logo.svg" alt="Logo" />
+          <p class="footer-text">
+            This plaform is to enable a peer to peer last mile delivery platform
+            that eases the stress of sending packages through fellow users as
+            they commute to different destinations while also enabling travelers
+            earn money while traveling.
+          </p>
+        </div>
+        <div class="col-sm-10 col-md-10 col-lg-2 links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">My Profile</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-10 col-md-10 col-lg-2 social-links">
+          <h4>Social Media</h4>
+          <ul>
+            <li>
+              <a href="#"> <i class="fa fa-facebook"></i> </a>
+            </li>
+            <li>
+              <a href="#"> <i class="fa fa-twitter"></i> </a>
+            </li>
+            <li>
+              <a href="#"> <i class="fa fa-Linkedin"></i> </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-sm-10 col-md-10 col-lg-4">
+          <div class="input-wrap d-flex">
+            <div class="form-group">
+              <input type="email" placeholder="Email Address" />
+            </div>
+            <a href="#" class="btn btn-sub">Subscribe</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="copy text-center">
+            <h5>copywright@Pantha. All Rights Reserved</h5>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="assets/js/bootstrap-js/jquery.js"></script>
+    <script src="assets/js/bootstrap-js/bootstrap.js"></script>
+    <script src="assets/js/bootstrap-js/popper.js"></script>
+    <script src="assets/js/validation.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/navBar.js"></script>
+  </body>
+</html>

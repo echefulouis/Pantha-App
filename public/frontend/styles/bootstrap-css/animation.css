@@ -1,0 +1,142 @@
+/* ==================== pre loader style ============================== */
+.loader-bg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1000;
+  background: #fff;
+}
+.loader-bg-rm {
+  display: none;
+}
+
+.loader {
+  width: 150px;
+  height: 150px;
+  background: 1px solid transparent;
+  border-radius: 50%;
+  position: absolute;
+  top: calc(50vh - 75px);
+  left: calc(50vw - 75px);
+}
+
+.loader:before {
+  content: "";
+  border-radius: 50%;
+  border: 1em solid #ffa500;
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: loader 2s linear infinite;
+  opacity: 0;
+}
+.loader:after {
+  content: "";
+  border-radius: 50%;
+  border: 1em solid #3f3356;
+  width: inherit;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: loader 2s linear infinite;
+  opacity: 0;
+}
+
+.loader:before {
+  animation-delay: 0.5s;
+}
+
+@keyframes loader {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* animation 2 */
+@keyframes enterFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+  50% {
+    transform: translate(-10px);
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+@keyframes enterFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-200px);
+  }
+  65% {
+    transform: translate(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes enterFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  65% {
+    transform: translate(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+/* button breathing animation */
+@keyframes breathing {
+  0% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+  }
+  25% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+
+/* animation for glowing button */
+@keyframes glow {
+  from {
+    background-color: #3f3356;
+    box-shadow: 0 0 9px #333;
+  }
+  50% {
+    background-color: #ffa500;
+    box-shadow: 0 0 18px #91bd09;
+  }
+  to {
+    background-color: #3f3356;
+    box-shadow: 0 0 9px #333;
+  }
+}
