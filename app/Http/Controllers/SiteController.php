@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Subscriber;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -9,12 +10,10 @@ use Illuminate\Http\Request;
 class SiteController extends Controller
 {
 
-   
    public function comingSoon()
    {
       return view('site.pages.coming-soon');
    }
-
    
     public function subscribe(Request $request)
    {
@@ -32,7 +31,7 @@ class SiteController extends Controller
       Subscriber::create([
          'email' => $validatedData['email'],
       ]);
-      return redirect()->back()->with('success',"Thanks for subscribing. You will receive notifications and updates from us.");
+      return redirect()->back()->with('subscribe-success',"Thanks for subscribing. You will receive notifications and updates from us.");
    }
 
    public function index()
@@ -45,15 +44,24 @@ class SiteController extends Controller
       return view('site.pages.about');
    }
 
-   public function policy()
+    public function contact()
    {
-      return view('site.pages.privacy-policy');
+      return view('site.pages.contact');
    }
 
-   public function conditions()
+   public function dashboard()
    {
-      return view('site.pages.terms-conditions');
+      $user = Auth::user();
+      if($user->hasRole('user')){
+        return redirect()->route('user.dashboard')->with("success","You are logged in");
+      }elseif($user->hasRole('company')){
+        return redirect()->route('company.dashboard')->with("success","You are logged in");
+      }elseif($user->hasRole('admin')){
+          return redirect()->to('admin/dashboard');
+      }else{
+        session()->flush();
+        return redirect()->route('home');
+      } 
    }
-
-
+   
 }

@@ -41,42 +41,36 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-        protected function logout()
+      protected function logout()
     {
-        if(Auth::user()->role === 'admin' || Auth::user()->role === 'user'){
-            $fireTo = url('admin/login'); 
+        if(Auth::user()->role == 'admin'){
+            $fireTo = 'admin/login'; 
+        }elseif(Auth::user()->role == 'company'){
+            $fireTo = 'company/login';
         }else{
-            $fireTo = url('login');
+          $fireTo = 'login';
         }
         if (request()->expectsJson()) {
           Auth::logout();
-          return response()->json(['success'=> true,'url' => $fireTo]);
+          return response()->json(['success'=> true,'url' => url($fireTo)]);
         }
         Auth::logout();
-        return redirect()->route('login');
+        return redirect()->to($fireTo);
     }
 
 
     protected function authenticated($request , $user){
         
-        if(!$user->is_verified){
-          Auth::logout();
-          return redirect()->to('login')->with([
-            "verifyAccount"=>"Please check your email and verify your account to continue.",
-             'user' => $user->email]);
-        }
-        if($user->status !== 'active'){
-          Auth::logout();
-          return redirect()->back()->with('error', "Please you are allow to login. Your account has been ".$user->status);
-        }
-        if($user->hasRole('customer')){
-            return redirect()->route('home')->with('success','You are logged in');
-        }elseif($user->hasRole('admin')){
-            return redirect()->to('/admin/dashboard');
-        }else{
-          session()->flush();
-          return redirect()->route('home');
-        } 
+      if($user->hasRole('user')){
+        return redirect()->route('user.dashboard')->with("success","You are logged in");
+      }elseif($user->hasRole('company')){
+        return redirect()->route('company.dashboard')->with("success","You are logged in");
+      }elseif($user->hasRole('admin')){
+          return redirect()->to('admin/dashboard');
+      }else{
+        session()->flush();
+        return redirect()->route('home');
+      } 
     }
 
 }

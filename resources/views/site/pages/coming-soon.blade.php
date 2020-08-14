@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="{{ asset('frontend/fonts/fontawesome/css/font-awesome.min.css')}}"
+      href="{{ asset('assets/fonts/fontawesome/css/font-awesome.min.css')}}"
     />
-    <link rel="stylesheet" href="{{ asset('frontend/styles/bootstrap-css/bootstrap.css')}}" />
-    <link rel="stylesheet" href="{{ asset('frontend/styles/bootstrap-css/animation.css')}}" />
-    <link rel="stylesheet" href="{{ asset('frontend/styles/comingsoon.css')}}" />
+    <link rel="stylesheet" href="{{ asset('assets/styles/bootstrap-css/bootstrap.css')}}" />
+    <link rel="stylesheet" href="{{ asset('assets/styles/bootstrap-css/animation.css')}}" />
+    <link rel="stylesheet" href="{{ asset('assets/styles/comingsoon.css')}}" />
 
     <link rel="stylesheet" href="{{ asset(mix('css/frontend.css')) }}">
 
@@ -22,7 +22,7 @@
           <div class="row">
             <div class="col-sm-12 col-md-10 col-lg-6 cms-lft">
               <div class="txt">
-                <img src="{{ asset('frontend/img/newLogo.svg')}}" alt="" />
+                <img src="{{ asset('assets/img/newLogo.svg')}}" alt="" />
                 <div class="txt-wrap">
                   <h2>Coming Soon!</h2>
                   <h4>Our Product Pantha has two key services :</h4>
@@ -65,7 +65,7 @@
               </div>
             </div>
             <div class="col-sm-12 col-md-10 col-lg-6 cms-rgt">
-              <div class="cms-rgt-box" style="background-image: url({{asset('/frontend/img/under_construction.svg')}});"></div>
+              <div class="cms-rgt-box" style="background-image: url({{asset('/assets/img/under_construction.svg')}});"></div>
               <div id="clockdiv">
                 <div>
                   <span class="days" id="day"></span>
@@ -94,12 +94,12 @@
         </div>
       </section>
     </div>
-    <script src="{{ asset('frontend/js/bootstrap-js/jquery.js')}}"></script>
-    <script src="{{ asset('frontend/js/bootstrap-js/bootstrap.js')}}"></script>
-    <script src="{{ asset('frontend/js/bootstrap-js/popper.js')}}"></script>
-    <script src="{{ asset('frontend/js/timer.js')}}"></script>
+    <script src="{{ asset('assets/js/bootstrap-js/jquery.js')}}"></script>
+    <script src="{{ asset('assets/js/bootstrap-js/bootstrap.js')}}"></script>
+    <script src="{{ asset('assets/js/bootstrap-js/popper.js')}}"></script>
+    <script src="{{ asset('assets/js/timer.js')}}"></script>
 
     <script src="{{ asset(mix('js/frontend.js')) }}"></script>
-    @include('site.panels.messages')
+    @include('site.panels.alerts')
   </body>
 </html>

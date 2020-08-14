@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Role;
+use App\Events\NotificationEvent;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -52,6 +54,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'phone' => ['required', 'string', 'max:25', 'unique:users,phone'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -64,10 +67,42 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+
+        $default_role = 3;
+        $role = Role::where('id', $default_role)->first();
+        if(is_null($role)){
+            return redirect()->back()->withErrors('Sorry you can not be registered');
+        }
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
+            'role_id' => $default_role,
+            'role' => $role->name,
         ]);
+
+        // event(new NotificationEvent([
+        //     'type' => 'success',
+        //     'title' => 'New Customer registered',
+        //     'text' => 'A new customer has successfully registered',
+        //     'icon' => 'AlertOctagonIcon',
+        //     'url' => '/admin/users/'.$user->id
+        // ]));
+        return $user;
+    }
+
+
+     protected function registered($request, $user)
+    {
+        //This helps to send users or customer to their specific dashboard
+        if($user->hasRole('user')){
+          return redirect()->route('user.dashboard')->with("success","You are registered");
+        }else{
+          session()->flush();
+          return redirect()->route('home');
+        } 
+
     }
 }

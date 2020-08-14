@@ -23,7 +23,7 @@
 
     <!-- banner section -->
 
-<section class="banner" style="background-image: url({{asset('/frontend/img/banner-bg.png')}});">
+<section class="banner" style="background-image: url({{asset('assets/img/banner-bg.png')}});">
   <div class="head-wrap">
     <div cldass="hd-lft">
       <div class="text">
@@ -35,40 +35,15 @@
           technology to connect senders to travellers journeying to a
           destination.
         </p>
-        <button class="btn btn-bnr">Sign In</button>
+        <a href="{{route('register')}}" class="btn btn-bnr">Sign Up</a>
       </div>
     </div>
     <div class="hd-rgt">
       <div class="card text-center">
-        <div class="card-header"><span>Sign Up</span></div>
+        <div class="card-header"><span>Sign In</span></div>
         <div class="card-body">
-          <form class="needs-validation" novalidate>
-            <div class="form-group text-left">
-              <label for="inputFullName">Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="inputFullName"
-                placeholder="Full Name"
-                required
-              />
-              <div class="invalid-feedback">
-                Please enter your full name.
-              </div>
-            </div>
-            <div class="form-group text-left">
-              <label for="inputPassword">Phone Number</label>
-              <input
-                type="text"
-                class="form-control"
-                id="inputPassword"
-                placeholder="Phone Number"
-                required
-              />
-              <div class="invalid-feedback">
-                Please enter your phone number to continue.
-              </div>
-            </div>
+          <form class="needs-validation" novalidate method="POST" action="{{ route('login') }}" >
+            @csrf
             <div class="form-group text-left">
               <label for="inputEmail pl-5">Email</label>
               <input
@@ -77,16 +52,32 @@
                 id="inputEmail"
                 placeholder="Email"
                 required
+                name="email"
+                autocomplete="email"
+                value="{{ old('email') }}"
               />
               <div class="invalid-feedback">
                 Please enter a valid email address.
               </div>
             </div>
+            <div class="form-group text-left">
+              <label for="inputPassword pl-5">Password</label>
+              <input
+                type="Password"
+                class="form-control"
+                id="inputPassword"
+                placeholder="Password"
+                name="password"
+                required
+              />
+              <div class="invalid-feedback">
+                Please enter a valid password.
+              </div>
+            </div>
 
-            <button type="submit" class="btn btn-bn-frm" id="glow-btn">Sign Up</button>
+            <button type="submit" class="btn btn-bn-frm" id="glow-btn">Sign In</button>
           </form>
 
-          <!-- <a href="#" class="btn btn-primary">Know more</a> -->
         </div>
       </div>
     </div>
@@ -101,20 +92,20 @@
         <h2>How it Works</h2>
       </div>
       <div class="col-sm-12 col-md-8 col-lg-4 text-center mb-5 mt-3 ">
-        <img src="{{ asset('frontend/img/box-icon.svg')}}" alt=""  class="show-from-bottom show-on-scroll"/>
+        <img src="{{ asset('assets/img/box-icon.svg')}}" alt=""  class="show-from-bottom show-on-scroll"/>
         <p class="text show-from-bottom show-on-scroll">
           Transactions is made and carried on one-one basis, with a direct
           contact with the traveller
         </p>
       </div>
       <div class="col-sm-12 col-md-8 col-lg-4 text-center mb-5 mt-3 show-from-bottom show-on-scroll">
-        <img src="{{ asset('frontend/img/van-icon.png')}}" alt="" class="show-from-bottom show-on-scroll"/>
+        <img src="{{ asset('assets/img/van-icon.png')}}" alt="" class="show-from-bottom show-on-scroll"/>
         <p class="text show-from-bottom show-on-scroll">
           Travellers recives package and set out to the destination
         </p>
       </div>
       <div class="col-sm-12 col-md-8 col-lg-4 text-center mb-5 mt-3 show-from-bottom show-on-scroll">
-        <img src="{{ asset('frontend/img/hand-icon.png')}}" alt="" />
+        <img src="{{ asset('assets/img/hand-icon.png')}}" alt="" />
         <p class="text">
           Receiver collects the package and Sign, Traveller receives
           payment.
@@ -126,7 +117,7 @@
 <!-- Our Mission -->
 <section class="mission">
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-6 msn-lft" style="background-image: url({{asset('/frontend/img/task.svg')}});"></div>
+    <div class="col-sm-12 col-md-8 col-lg-6 msn-lft" style="background-image: url({{asset('assets/img/task.svg')}});"></div>
     <div class="col-sm-12 col-md-8 col-lg-6 msn-rgt">
       <h3 class="text-center">Our Mission</h3>
       <p>
@@ -150,11 +141,11 @@
         all our users are family.
       </p>
     </div>
-    <div class="col-sm-12 col-md-8 col-lg-6 ft-rgt-tp" style="background-image: url({{asset('/frontend/img/takeout_boxes.svg')}});"></div>
+    <div class="col-sm-12 col-md-8 col-lg-6 ft-rgt-tp" style="background-image: url({{asset('assets/img/takeout_boxes.svg')}});"></div>
   </div>
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-6 ft-lft-btm" style="background-image: url({{asset('/frontend/img/order_delivered.svg')}});"></div>
-    <div class="col-sm-12 col-md-8 col-lg-6 ft-rgt-btm p-4" style="background-image: url({{asset('/frontend/img/map.svg')}});" >
+    <div class="col-sm-12 col-md-8 col-lg-6 ft-lft-btm" style="background-image: url({{asset('assets/img/order_delivered.svg')}});"></div>
+    <div class="col-sm-12 col-md-8 col-lg-6 ft-rgt-btm p-4" style="background-image: url({{asset('assets/img/map.svg')}});" >
       <h3>Care & Real time Tracking</h3>
       <p>
         Everytime you send your package via coureir service or any other
